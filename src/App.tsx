@@ -4,6 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import Home from "./views/Home";
+import Mint from "./views/Mint";
 import NotFound from "./views/NotFound";
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/mint" element={<Mint />} />
         <Route path={"*"} element={<NotFound />} />
       </Routes>
     </BrowserRouter >

@@ -10,6 +10,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "ethers": "^5.7.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
