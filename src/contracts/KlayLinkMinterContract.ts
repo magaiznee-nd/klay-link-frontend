@@ -18,7 +18,7 @@ class KlayLinkMinterContract extends Contract {
     }
 
     public async mint(discount: boolean, data: string): Promise<void> {
-        await this.runWalletMethod("mint", discount, data);
+        await this.runWalletMethodWithValue(await this.mintPrice(), "mint", discount, data);
     }
 }
 
