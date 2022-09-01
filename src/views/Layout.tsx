@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 
 import Header from "../components/Header";
@@ -8,11 +8,11 @@ const Layout: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
     children,
 }) => {
     return (
-        <div>
+        <div className="bg-black">
             <Helmet defaultTitle="Klay Link" titleTemplate="%s | Klay Link">
             </Helmet>
             <Header />
-            <main>
+            <main className="container mx-auto min-h-screen">
                 {children!}
             </main>
             <Footer />
