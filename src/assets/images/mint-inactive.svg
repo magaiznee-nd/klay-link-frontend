@@ -1,17 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="38" height="42" viewBox="0 0 38 42">
-    <defs>
-        <filter id="0de7lm1o0a" x="0" y="0" width="38" height="42" filterUnits="userSpaceOnUse">
-            <feOffset dy="3"/>
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feFlood flood-opacity=".384"/>
-            <feComposite operator="in" in2="blur"/>
-            <feComposite in="SourceGraphic"/>
-        </filter>
-    </defs>
-    <g style="filter:url(#0de7lm1o0a)" data-name="그룹 3907">
-        <g data-name="다각형 2" style="fill:#171119" transform="translate(.001 .004)">
-            <path d="M16.868 19.5H7.132a1.508 1.508 0 0 1-1.286-.728l-4.8-8a1.497 1.497 0 0 1 0-1.544l4.8-8C6.116.78 6.61.5 7.132.5h9.736c.523 0 1.016.28 1.286.728l4.8 8a1.497 1.497 0 0 1 0 1.544l-4.8 8c-.27.449-.763.728-1.286.728z" style="stroke:none" transform="rotate(90 11.5 17.5)"/>
-            <path d="M7.132 1c-.349 0-.677.186-.857.486l-4.8 8a.998.998 0 0 0 0 1.028l4.8 8c.18.3.508.486.857.486h9.736c.349 0 .677-.186.857-.486l4.8-8a.998.998 0 0 0 0-1.028l-4.8-8c-.18-.3-.508-.486-.857-.486H7.132m0-1h9.736a2 2 0 0 1 1.715.971l4.8 8a2 2 0 0 1 0 2.058l-4.8 8a2 2 0 0 1-1.715.971H7.132a2 2 0 0 1-1.715-.971l-4.8-8a2 2 0 0 1 0-2.058l4.8-8A2 2 0 0 1 7.132 0z" style="fill:#86b0ff;stroke:none" transform="rotate(90 11.5 17.5)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24">
+    <g data-name="그룹 3909">
+        <g data-name="다각형 2" style="fill:#171119">
+            <path d="M16.868 19.5H7.132a1.508 1.508 0 0 1-1.286-.728l-4.8-8a1.497 1.497 0 0 1 0-1.544l4.8-8C6.116.78 6.61.5 7.132.5h9.736c.523 0 1.016.28 1.286.728l4.8 8a1.497 1.497 0 0 1 0 1.544l-4.8 8c-.27.449-.763.728-1.286.728z" style="stroke:none" transform="rotate(90 10 10)"/>
+            <path d="M7.132 1c-.349 0-.677.186-.857.486l-4.8 8a.998.998 0 0 0 0 1.028l4.8 8c.18.3.508.486.857.486h9.736c.349 0 .677-.186.857-.486l4.8-8a.998.998 0 0 0 0-1.028l-4.8-8c-.18-.3-.508-.486-.857-.486H7.132m0-1h9.736a2 2 0 0 1 1.715.971l4.8 8a2 2 0 0 1 0 2.058l-4.8 8a2 2 0 0 1-1.715.971H7.132a2 2 0 0 1-1.715-.971l-4.8-8a2 2 0 0 1 0-2.058l4.8-8A2 2 0 0 1 7.132 0z" style="fill:#86b0ff;stroke:none" transform="rotate(90 10 10)"/>
         </g>
     </g>
 </svg>
