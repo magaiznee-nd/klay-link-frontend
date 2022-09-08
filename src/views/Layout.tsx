@@ -8,7 +8,7 @@ const Layout: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
     children,
 }) => {
     return (
-        <div className="bg-black">
+        <div>
             <Helmet defaultTitle="Klay Link" titleTemplate="%s | Klay Link">
             </Helmet>
             <Header />

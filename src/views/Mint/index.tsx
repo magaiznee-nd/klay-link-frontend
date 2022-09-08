@@ -5,9 +5,15 @@ import { useAppSelector } from "../../state/hooks";
 import useAsyncEffect from "../../hooks/useAsyncEffect";
 
 import Layout from "../Layout";
+import styles from "./index.module.scss";
 
 import KlayLinkContract from "../../contracts/KlayLinkContract";
 import KlayLinkMinterContract from "../../contracts/KlayLinkMinterContract";
+
+import MintLogo from "../../assets/images/mint-logo.svg";
+import KlaytnLogo from "../../assets/icn/klaytn-logo.svg";
+import MintActive from "../../assets/images/mint-active.svg";
+import MintInActive from "../../assets/images/mint-inactive.svg";
 
 const Mint = () => {
     const isAuth = useAppSelector((state) => state.auth.isAuth);
@@ -23,16 +29,79 @@ const Mint = () => {
     useAsyncEffect(async () => setMintPrice(parseFloat(utils.formatEther(await KlayLinkMinterContract.mintPrice()))));
 
     return (
-        <Layout>
-            <Helmet title="Mint" />
-            <section>
-                <h1 className="text-4xl text-white font-bold">Mint Test</h1>
-                {isAuth && <p className="text-sm text-white">Your Wallet: {address}</p>}
-                <p className="text-sm text-white">Mint Price: {mintPrice} KLAY</p>
-                {isAuth ? <button className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 mt-4 rounded" onClick={mintNft}>Mint</button>
-                    : <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mt-4 rounded">Connect Wallet</button>}
+        <div>
+            <Helmet title="Mint | Klay Link" />
+            <section className={styles.mintView}>
+                <header className={styles.header}>
+                    <nav className={styles.nav}>
+                        <img src="" alt="KLAY.LINK" />
+                        <ul className={styles.menu}>
+                            <li>
+                                <a className={styles.connectWallet}>카이카스 연결</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <main className={styles.main}>
+                    <section className={styles.mintContainer}>
+                        <div className={styles.left}>
+                            <h2 className={styles.title}>
+                                PRE-LAUNCH
+                            </h2>
+                            <div className={styles.sbtContainer}>
+                                <img src="" alt="SBT.MP4" />
+                            </div>
+                            <p className={styles.korean}>
+                                클레이.링크는 클레이튼 체인의 첫 번째<br />SBT로 WEB3.0플레이어의 신분증입니다.
+                            </p>
+                            <p className={styles.english}>
+                                KLAY.link is the first SBT of klaytn.<br />This is the ID Card of the WEB 3.0 player.
+                            </p>
+                            <a className={styles.finder}>
+                                <p>KLAYTN FINDER</p>
+                            </a>
+                        </div>
+                        <div className={styles.right}>
+                            <hr className={styles.divider} />
+                            <div className={styles.content}>
+                                <div className={styles.logoContainer}>
+                                    <img src={MintLogo} alt="mint-logo" />
+                                </div>
+                                <h6 className={styles.price}>PRICE</h6>
+                                <div className={styles.priceContainer}>
+                                    <img src={KlaytnLogo} alt="KLAY" />
+                                    <p>{mintPrice} KLAY</p>
+                                </div>
+                                <div className={styles.supplyContainer}>
+                                    <h6>SUPPLY</h6>
+                                    <div className={styles.progress}>
+                                        <div className={styles.bar}></div>
+                                        <div className={styles.statusIcon}>
+                                            <img src={MintActive} alt="active" />
+                                            <img src={MintInActive} alt="inactive" />
+                                            <img src={MintInActive} alt="inactive" />
+                                        </div>
+                                        <div className={styles.statusText}>
+                                            <p className={styles.active}>Pre-launch Discount Period</p>
+                                            <p>Public Sale</p>
+                                            <p>LFG</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles.amountContainer}>
+                                    <h6>AMOUNT</h6>
+                                    <div className={styles.quantityContainer}>
+                                        <p>Quantity : MAX 1 per wallet : 1</p>
+                                        <h6>1 SBT</h6>
+                                    </div>
+                                </div>
+                                <button onClick={mintNft}>MINT</button>
+                            </div>
+                        </div>
+                    </section>
+                </main>
             </section>
-        </Layout>
+        </div>
     );
 };
 

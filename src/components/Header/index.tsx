@@ -5,6 +5,9 @@ import { setAuth } from "../../state/auth";
 import { useAppSelector } from "../../state/hooks";
 import wallet from "../../utils/Wallet";
 
+import logo from "../../assets/images/logo.svg";
+import styles from "./index.module.scss";
+
 const Header: React.FC = () => {
     const dispatch = useDispatch();
 
@@ -21,7 +24,15 @@ const Header: React.FC = () => {
     }, []);
 
     return (
-        <header>
+        <header className={styles.header}>
+            <nav className={styles.nav}>
+                <img src={logo} alt="klay.link" />
+                <ul className={styles.menu}>
+                    <li>
+                        <a className={styles.connectWallet}>지갑 연결</a>
+                    </li>
+                </ul>
+            </nav>
         </header>
     );
 };

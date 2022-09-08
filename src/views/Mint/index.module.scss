@@ -1,0 +1,262 @@
+.mintView {
+  width: 100%;
+  min-height: 100vh;
+  background: no-repeat center url("../../assets/images/mint-bg.png");
+  background-size: 100% 100%;
+  font-family: "Jost", sans-serif;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 20px;
+
+      .menu {
+        display: flex;
+        list-style: none;
+        padding-left: 0px;
+        font-size: 14px;
+        gap: 44px;
+
+        .connectWallet {
+          border-radius: 8px;
+          border: solid 1px #d6d6d6;
+          background-color: #121212;
+          color: #d6d6d6;
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    .mintContainer {
+      display: flex;
+      max-width: 1020px;
+      width: 100%;
+      height: 614px;
+      background: no-repeat center
+        url("../../assets/images/mint-content-bg.svg");
+      background-size: 100% 100%;
+
+      .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 254px;
+        height: 100%;
+        padding: 0px 29px;
+
+        .title {
+          font-size: 32px;
+          font-weight: bold;
+          letter-spacing: -0.8px;
+          text-align: left;
+          color: #86b0ff;
+        }
+
+        .sbtContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 253px;
+          height: 257px;
+          margin: 32px 30px 30px 0;
+          border-radius: 10px;
+          border: solid 1px #86b0ff;
+          background-color: rgba(33, 26, 26, 0.6);
+        }
+
+        .korean {
+          color: #fff;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 1.14;
+          letter-spacing: -0.7px;
+        }
+
+        .english {
+          color: #fff;
+          font-size: 14px;
+          line-height: 1.14;
+          letter-spacing: -0.7px;
+        }
+
+        .finder {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          max-width: 250px;
+          height: 42px;
+          border-radius: 20px;
+          border: solid 1px #c7c7c7;
+          line-height: 1.6;
+          letter-spacing: -0.25px;
+          font-size: 10px;
+          color: #fff;
+        }
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 40px 20px;
+        padding-left: 0px;
+
+        .divider {
+          width: 2px;
+          height: 470px;
+          margin-right: 40px;
+          box-shadow: 0 6px 10px 0 #86b0ff;
+          background-color: #86b0ff;
+          border: 0;
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 100%;
+
+          .logoContainer {
+            display: flex;
+            justify-content: flex-end;
+          }
+
+          .price {
+            font-size: 24px;
+            font-weight: 500;
+            color: #fff;
+            margin-top: 29px;
+            margin-bottom: 19px;
+          }
+
+          .priceContainer {
+            display: flex;
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+
+            p {
+              margin-left: 9px;
+            }
+          }
+
+          .supplyContainer {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 45px;
+
+            h6 {
+              font-size: 16px;
+              font-weight: bold;
+              margin-top: 19px;
+              margin-bottom: 16px;
+            }
+
+            .progress {
+              position: relative;
+              border-radius: 3px;
+              border: solid 1px #86b0ff;
+              background-color: rgba(134, 176, 255, 0.18);
+              height: 6px;
+
+              .bar {
+                width: 50%;
+                height: 5px;
+                border-radius: 3px;
+                border: solid 1px #86b0ff;
+                background-color: #86b0ff;
+              }
+
+              .statusIcon {
+                position: absolute;
+                width: 100%;
+                top: -17px;
+                display: flex;
+                justify-content: space-between;
+
+                img {
+                  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.38));
+                }
+              }
+
+              .statusText {
+                display: flex;
+                justify-content: space-between;
+                font-size: 14px;
+                font-weight: 500;
+                color: #c7c7c7;
+
+                .active {
+                  color: #86b0ff;
+                }
+              }
+            }
+          }
+
+          .amountContainer {
+            h6 {
+              font-size: 24px;
+              font-weight: 500;
+              color: #fff;
+              margin-top: 0;
+              margin-bottom: 47px;
+            }
+
+            .quantityContainer {
+              display: flex;
+              color: #fff;
+              justify-content: space-between;
+              align-items: center;
+              margin-top: 0px;
+              margin-bottom: 50px;
+
+              > h6 {
+                margin: 0px;
+              }
+
+              p {
+                margin: 0px;
+                font-size: 14px;
+                font-weight: 500;
+                color: #86b0ff;
+              }
+            }
+          }
+
+          button {
+            height: 58px;
+            border-radius: 4px;
+            background-color: #86b0ff;
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: #141212;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
