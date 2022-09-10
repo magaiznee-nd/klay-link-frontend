@@ -13,10 +13,12 @@ import KlayLinkMinterContract from "../../contracts/KlayLinkMinterContract";
 
 import MintLogo from "../../assets/images/mint-logo.svg";
 import KlaytnLogo from "../../assets/icn/klaytn-logo.svg";
+import KlaylinkLogo from "../../assets/icn/klaylink-logo.svg";
 import MintActive from "../../assets/images/mint-active.svg";
 import MintInActive from "../../assets/images/mint-inactive.svg";
 import CommonUtil from "../../utils/CommonUtil";
 import { setAuth } from "../../state/auth";
+import { Link } from "react-router-dom";
 
 const Mint = () => {
     const dispatch = useDispatch();
@@ -53,7 +55,9 @@ const Mint = () => {
             <section className={styles.mintView}>
                 <header className={styles.header}>
                     <nav className={styles.nav}>
-                        <img src="" alt="KLAY.LINK" />
+                        <Link to="/">
+                            <img src={KlaylinkLogo} alt="KLAY.LINK" />
+                        </Link>
                         <ul className={styles.menu}>
                             <li>
                                 {address === undefined ? <a className={styles.connectWallet}>카이카스 연결</a>
