@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { utils } from "ethers";
+import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../state/hooks";
 import useAsyncEffect from "../../hooks/useAsyncEffect";
 
-import Layout from "../Layout";
 import styles from "./index.module.scss";
 
+import Wallet from "../../utils/Wallet";
 import KlayLinkContract from "../../contracts/KlayLinkContract";
 import KlayLinkMinterContract from "../../contracts/KlayLinkMinterContract";
 
@@ -14,17 +15,35 @@ import MintLogo from "../../assets/images/mint-logo.svg";
 import KlaytnLogo from "../../assets/icn/klaytn-logo.svg";
 import MintActive from "../../assets/images/mint-active.svg";
 import MintInActive from "../../assets/images/mint-inactive.svg";
+import CommonUtil from "../../utils/CommonUtil";
+import { setAuth } from "../../state/auth";
 
 const Mint = () => {
-    const isAuth = useAppSelector((state) => state.auth.isAuth);
+    const dispatch = useDispatch();
     const address = useAppSelector((state) => state.auth.address);
 
+    const [balance, setBalance] = useState(0);
     const [mintPrice, setMintPrice] = useState(0);
     const [discount, setDiscount] = useState(false);
 
     const mintNft = async () => {
         await KlayLinkMinterContract.mint(discount, "0x");
     }
+
+    useAsyncEffect(async () => {
+        if (await Wallet.connected() !== true) {
+            await Wallet.connect();
+        }
+        const address = await Wallet.loadAddress();
+        if (address !== undefined) {
+            dispatch(setAuth({ isAuth: true, address: address }));
+        }
+    });
+
+    useAsyncEffect(async () => {
+        const balance = (await KlayLinkContract.balanceOf(address)).toNumber();
+        setBalance(balance);
+    }, []);
 
     useAsyncEffect(async () => setMintPrice(parseFloat(utils.formatEther(await KlayLinkMinterContract.mintPrice()))));
 
@@ -37,7 +56,9 @@ const Mint = () => {
                         <img src="" alt="KLAY.LINK" />
                         <ul className={styles.menu}>
                             <li>
-                                <a className={styles.connectWallet}>카이카스 연결</a>
+                                {address === undefined ? <a className={styles.connectWallet}>카이카스 연결</a>
+                                    : <div className={styles.connectWallet}>{CommonUtil.shortenAddress(address)}</div>
+                                }
                             </li>
                         </ul>
                     </nav>
@@ -95,7 +116,8 @@ const Mint = () => {
                                         <h6>1 SBT</h6>
                                     </div>
                                 </div>
-                                <button onClick={mintNft}>MINT</button>
+                                {balance !== 0 ? <button onClick={mintNft}>MINT</button>
+                                    : <button className={styles.minted}>MINTED</button>}
                             </div>
                         </div>
                     </section>

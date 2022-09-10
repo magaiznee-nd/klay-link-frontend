@@ -182,7 +182,7 @@
               height: 6px;
 
               .bar {
-                width: 50%;
+                width: 0%;
                 height: 5px;
                 border-radius: 3px;
                 border: solid 1px #86b0ff;
@@ -254,6 +254,12 @@
             font-weight: bold;
             color: #141212;
             cursor: pointer;
+          }
+
+          .minted {
+            background-color: #333;
+            color: #eee;
+            cursor: default;
           }
         }
       }

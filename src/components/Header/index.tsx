@@ -7,11 +7,12 @@ import wallet from "../../utils/Wallet";
 
 import logo from "../../assets/images/logo.svg";
 import styles from "./index.module.scss";
+import CommonUtil from "../../utils/CommonUtil";
 
 const Header: React.FC = () => {
     const dispatch = useDispatch();
 
-    // const address = useAppSelector((state) => state.auth.address);
+    const address = useAppSelector((state) => state.auth.address);
 
     useAsyncEffect(async () => {
         if (await wallet.connected() !== true) {
@@ -29,7 +30,9 @@ const Header: React.FC = () => {
                 <img src={logo} alt="klay.link" />
                 <ul className={styles.menu}>
                     <li>
-                        <a className={styles.connectWallet}>지갑 연결</a>
+                        {address === undefined ? <a className={styles.connectWallet}>지갑 연결</a>
+                            : <div className={styles.connectWallet}>{CommonUtil.shortenAddress(address)}</div>
+                        }
                     </li>
                 </ul>
             </nav>
