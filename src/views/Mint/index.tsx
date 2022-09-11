@@ -85,7 +85,7 @@ const Mint = () => {
                             <p className={styles.english}>
                                 KLAY.link is the first SBT of klaytn.<br />This is the ID Card of the WEB 3.0 player.
                             </p>
-                            <a className={styles.finder}>
+                            <a href="https://www.klaytnfinder.io/account/0x6489f919432741965831f731Fa203553eA790614" target="_blank" className={styles.finder}>
                                 <p>KLAYTN FINDER</p>
                             </a>
                         </div>

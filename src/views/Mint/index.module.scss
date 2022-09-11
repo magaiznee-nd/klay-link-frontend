@@ -115,6 +115,7 @@
         }
 
         .finder {
+          cursor: pointer;
           font-family: "Mgothic-080";
           display: flex;
           justify-content: center;
@@ -127,6 +128,7 @@
           letter-spacing: -0.25px;
           font-size: 10px;
           color: #fff;
+          text-decoration: none;
         }
       }
 

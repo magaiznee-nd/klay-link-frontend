@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link, Navigate, Route, Routes } from "react-router-dom";
+import { Link, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
 import Layout from "../Layout";
 
 const Home = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        navigate("/mint");
+    });
 
     if (sessionStorage.__spa_path) {
         const to = sessionStorage.__spa_path;
         sessionStorage.removeItem("__spa_path");
-        return <Routes><Route element={<Navigate replace to={to}/>} /></Routes>;
+        return <Routes><Route element={<Navigate replace to={to} />} /></Routes>;
     }
 
     return (
