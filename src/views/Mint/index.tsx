@@ -55,6 +55,7 @@ const Mint = () => {
     return (
         <div>
             <Helmet title="PRE-LAUNCH | Klay Link" />
+            {Wallet.installed === true ? undefined : <>{alert("카이카스 설치가 필요합니다.")}</>}
             <section className={styles.mintView}>
                 <header className={styles.header}>
                     <nav className={styles.nav}>

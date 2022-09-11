@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import useAsyncEffect from "../../hooks/useAsyncEffect";
 import { setAuth } from "../../state/auth";
 import { useAppSelector } from "../../state/hooks";
-import wallet from "../../utils/Wallet";
+import Wallet from "../../utils/Wallet";
 
 import logo from "../../assets/images/logo.svg";
 import styles from "./index.module.scss";
@@ -15,10 +15,10 @@ const Header: React.FC = () => {
     const address = useAppSelector((state) => state.auth.address);
 
     useAsyncEffect(async () => {
-        if (await wallet.connected() !== true) {
-            await wallet.connect();
+        if (await Wallet.connected() !== true) {
+            await Wallet.connect();
         }
-        const address = await wallet.loadAddress();
+        const address = await Wallet.loadAddress();
         if (address !== undefined) {
             dispatch(setAuth({ isAuth: true, address: address }));
         }
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
                     </li>
                 </ul>
             </nav>
-        </header>
+        </header >
     );
 };
 

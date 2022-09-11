@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { utils } from "ethers";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../state/hooks";
 import useAsyncEffect from "../../hooks/useAsyncEffect";
@@ -8,8 +7,6 @@ import useAsyncEffect from "../../hooks/useAsyncEffect";
 import styles from "./index.module.scss";
 
 import Wallet from "../../utils/Wallet";
-import KlayLinkContract from "../../contracts/KlayLinkContract";
-import KlayLinkMinterContract from "../../contracts/KlayLinkMinterContract";
 
 import MintLogo from "../../assets/images/mint-logo.svg";
 import KlaylinkLogo from "../../assets/icn/klaylink-logo.svg";
@@ -40,6 +37,7 @@ const MintSuccess = () => {
     return (
         <div>
             <Helmet title="링크 민팅 완료 | Klay Link" />
+            {Wallet.installed === true ? undefined : <>{alert("카이카스 설치가 필요합니다.")}</>}
             <section className={styles.mintView}>
                 <header className={styles.header}>
                     <nav className={styles.nav}>
