@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy": "npm run build && git add dist -f && git commit -m 'hosting'  && git subtree push --prefix dist origin gh-pages"
+    "deploy": "npm run build && git add dist -f && git commit -m 'build'  && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
