@@ -14,13 +14,15 @@ import KlayLinkMinterContract from "../../contracts/KlayLinkMinterContract";
 import MintLogo from "../../assets/images/mint-logo.svg";
 import KlaytnLogo from "../../assets/icn/klaytn-logo.svg";
 import KlaylinkLogo from "../../assets/icn/klaylink-logo.svg";
+import Sbt from "../../assets/images/sbt.png";
 import MintActive from "../../assets/images/mint-active.svg";
 import MintInActive from "../../assets/images/mint-inactive.svg";
 import CommonUtil from "../../utils/CommonUtil";
 import { setAuth } from "../../state/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Mint = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const address = useAppSelector((state) => state.auth.address);
 
@@ -30,6 +32,7 @@ const Mint = () => {
 
     const mintNft = async () => {
         await KlayLinkMinterContract.mint(discount, "0x");
+        navigate("/mint/success");
     }
 
     useAsyncEffect(async () => {
@@ -51,7 +54,7 @@ const Mint = () => {
 
     return (
         <div>
-            <Helmet title="Mint | Klay Link" />
+            <Helmet title="PRE-LAUNCH | Klay Link" />
             <section className={styles.mintView}>
                 <header className={styles.header}>
                     <nav className={styles.nav}>
@@ -74,7 +77,7 @@ const Mint = () => {
                                 PRE-LAUNCH
                             </h2>
                             <div className={styles.sbtContainer}>
-                                <img src="" alt="SBT.MP4" />
+                                <img src={Sbt} alt="SBT.MP4" />
                             </div>
                             <p className={styles.korean}>
                                 클레이.링크는 클레이튼 체인의 첫 번째<br />SBT로 WEB3.0플레이어의 신분증입니다.

@@ -32,8 +32,9 @@
 
         .connectWallet {
           border-radius: 8px;
-          border: solid 1px #d6d6d6;
+          border: solid 1px #86b0ff;
           background-color: #121212;
+          letter-spacing: -0.4px;
           color: #d6d6d6;
           padding: 10px 20px;
         }
@@ -59,7 +60,7 @@
       .left {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        margin-top: 40px;
         max-width: 254px;
         height: 100%;
         padding: 0px 29px;
@@ -70,6 +71,7 @@
           letter-spacing: -0.8px;
           text-align: left;
           color: #86b0ff;
+          margin: 0;
         }
 
         .sbtContainer {
@@ -78,28 +80,42 @@
           justify-content: center;
           width: 253px;
           height: 257px;
-          margin: 32px 30px 30px 0;
+          margin: 35px 30px 30px 0;
           border-radius: 10px;
           border: solid 1px #86b0ff;
           background-color: rgba(33, 26, 26, 0.6);
+
+          img {
+            width: 253px;
+            height: 257px;
+            border-radius: 10px;
+            border: solid 1px #86b0ff;
+            background-color: rgba(33, 26, 26, 0.6);
+          }
         }
 
         .korean {
+          font-family: "Mgothic-050";
           color: #fff;
           font-size: 14px;
           font-weight: 500;
           line-height: 1.14;
           letter-spacing: -0.7px;
+          margin: 0;
         }
 
         .english {
+          font-family: "Mgothic-020";
           color: #fff;
           font-size: 14px;
           line-height: 1.14;
           letter-spacing: -0.7px;
+          margin-top: 12px;
+          margin-bottom: 35px;
         }
 
         .finder {
+          font-family: "Mgothic-080";
           display: flex;
           justify-content: center;
           align-items: center;
