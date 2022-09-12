@@ -1,25 +1,18 @@
-import {
-  Routes,
-  Route,
-  BrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./views/Home";
 import Mint from "./views/Mint";
 import MintSuccess from "./views/MintSuccess";
 import NotFound from "./views/NotFound";
 
-const App = () => {
-
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Mint />} />
-        {/* <Route path="/mint" element={<Mint />} /> */}
-        <Route path="/success" element={<MintSuccess />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter >
-  )
-}
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Mint} />
+      {/* <Route path="/mint" element={<Mint />} /> */}
+      <Route exact path="/success" component={MintSuccess} />
+      <Route exact path="*" component={NotFound} />
+    </Switch>
+  </Router>
+)
 
 export default App

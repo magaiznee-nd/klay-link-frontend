@@ -18,18 +18,11 @@ import MintSuccess4 from "../../assets/images/mint-success-4.png";
 
 import CommonUtil from "../../utils/CommonUtil";
 import { setAuth } from "../../state/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const MintSuccess = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const address = useAppSelector((state) => state.auth.address);
-
-    if (sessionStorage.__spa_path) {
-        const to = sessionStorage.__spa_path;
-        sessionStorage.removeItem("__spa_path");
-        navigate(to);
-    }
 
     useAsyncEffect(async () => {
         if (await Wallet.connected() !== true) {

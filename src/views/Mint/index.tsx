@@ -19,10 +19,10 @@ import MintActive from "../../assets/images/mint-active.svg";
 import MintInActive from "../../assets/images/mint-inactive.svg";
 import CommonUtil from "../../utils/CommonUtil";
 import { setAuth } from "../../state/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 
 const Mint = () => {
-    const navigate = useNavigate();
+    const history = useHistory();
     const dispatch = useDispatch();
     const address = useAppSelector((state) => state.auth.address);
 
@@ -33,12 +33,12 @@ const Mint = () => {
     if (sessionStorage.__spa_path) {
         const to = sessionStorage.__spa_path;
         sessionStorage.removeItem("__spa_path");
-        navigate(to);
+        return <Redirect to={to} />;
     }
 
     const mintNft = async () => {
         await KlayLinkMinterContract.mint(discount, "0x");
-        navigate("/success");
+        history.push("/success");
     }
 
     useAsyncEffect(async () => {
