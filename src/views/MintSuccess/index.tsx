@@ -84,7 +84,7 @@ const MintSuccess = () => {
                             <div className={styles.content}>
                                 <div className={styles.logoContainer}>
                                     <div></div>
-                                    <h3>KLAY.LINK는 기본적으로 이런게 가능해요.</h3>
+                                    <h3>민팅 완료! KLAY.LINK는 기본적으로 이런게 가능해요.</h3>
                                     <img src={MintLogo} alt="mint-logo" />
                                 </div>
                                 <div className={styles.gridContainer}>
