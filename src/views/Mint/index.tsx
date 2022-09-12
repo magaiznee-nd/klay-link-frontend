@@ -52,8 +52,14 @@ const Mint = () => {
     });
 
     useAsyncEffect(async () => {
-        const balance = (await KlayLinkContract.balanceOf(address)).toNumber();
-        setBalance(balance);
+        if (await Wallet.connected() !== true) {
+            await Wallet.connect();
+        }
+        const address = await Wallet.loadAddress();
+        if (address !== undefined) {
+            const balance = (await KlayLinkContract.balanceOf(address)).toNumber();
+            setBalance(balance);
+        }
     }, []);
 
     useAsyncEffect(async () => setMintPrice(parseFloat(utils.formatEther(await KlayLinkMinterContract.mintPrice()))));
@@ -130,8 +136,12 @@ const Mint = () => {
                                         <h6>1 SBT</h6>
                                     </div>
                                 </div>
-                                {balance !== 0 ? <button onClick={mintNft}>MINT</button>
+                                {balance === 0 ? <button onClick={mintNft}>MINT</button>
                                     : <button className={styles.minted}>MINTED</button>}
+                                <p className={styles.warn}>
+                                    KLAY.LINK는 유료 어플리케이션이며 운영사들의 상황에 따라 서비스가 종료될 수 있습니다. KLAY.LINK는 SBT로
+                                    구매자 지갑에 귀속되며 2차거래 및 환불이 불가합니다. MINT버튼은 해당사항에대한 동의로 간주합니다.
+                                </p>
                             </div>
                         </div>
                     </section>
