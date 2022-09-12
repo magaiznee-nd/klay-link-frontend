@@ -11,7 +11,7 @@ import NotFound from "./views/NotFound";
 const App = () => {
 
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Mint />} />
         {/* <Route path="/mint" element={<Mint />} /> */}

@@ -30,6 +30,12 @@ const Mint = () => {
     const [mintPrice, setMintPrice] = useState(0);
     const [discount, setDiscount] = useState(false);
 
+    if (sessionStorage.__spa_path) {
+        const to = sessionStorage.__spa_path;
+        sessionStorage.removeItem("__spa_path");
+        navigate(to);
+    }
+
     const mintNft = async () => {
         await KlayLinkMinterContract.mint(discount, "0x");
         navigate("/success");
