@@ -1,7 +1,7 @@
 import {
-  BrowserRouter,
   Routes,
   Route,
+  BrowserRouter,
 } from "react-router-dom";
 import Home from "./views/Home";
 import Mint from "./views/Mint";
@@ -11,11 +11,11 @@ import NotFound from "./views/NotFound";
 const App = () => {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/mint" element={<Mint />} />
-        <Route path="/mint/success" element={<MintSuccess />} />
+        <Route path="/" element={<Mint />} />
+        {/* <Route path="/mint" element={<Mint />} /> */}
+        <Route path="/success" element={<MintSuccess />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter >

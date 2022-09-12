@@ -32,7 +32,7 @@ const Mint = () => {
 
     const mintNft = async () => {
         await KlayLinkMinterContract.mint(discount, "0x");
-        navigate("/mint/success");
+        navigate("/success");
     }
 
     useAsyncEffect(async () => {
