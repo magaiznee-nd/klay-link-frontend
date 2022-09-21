@@ -12,7 +12,7 @@
   padding: 20px 0;
 
   .walletPopup {
-    max-width: 600px;
+    max-width: 500px;
     width: 100%;
     margin: auto;
     border-radius: 14px;
@@ -21,44 +21,86 @@
     background-color: #171b2a;
     color: #fff;
     padding: 20px;
+    align-items: center;
 
     .title {
-      margin: 0px;
-      font-size: 30px;
-      margin-bottom: 24px;
-    }
-
-    .divider {
-      border: solid 1px #86b0ff;
-    }
-
-    .content {
-      font-size: 14px;
-      line-height: 30px;
+      font-family: "Mgothic-090";
+      text-align: center !important;
+      margin-top: 67px;
+      margin-bottom: 49px;
+      font-size: 38px;
+      text-align: left;
+      color: #86b0ff;
     }
 
     .buttonContainer {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 16px;
 
       button {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         cursor: pointer;
         color: #fff;
         background-color: transparent;
         padding: 8px;
         border: solid 1px #86b0ff;
         border-radius: 4px;
+        font-family: "Mgothic-060";
+        font-size: 24px;
       }
 
       .kaikas {
-        background-color: rgb(111, 101, 88);
+        img {
+          width: 60px;
+          height: 60px;
+          object-fit: contain;
+        }
+
+        p {
+          justify-content: center;
+        }
+
+        border-radius: 14px;
+        border: solid 2px #36f;
+        background-color: #cedcf5;
+        height: 80px;
+        letter-spacing: -1.68px;
+        color: #36f;
       }
 
       .klip {
-        background-color: rgb(254, 229, 0);
-        color           : #000000;
+        img {
+          width: 46px;
+          height: 24px;
+          object-fit: contain;
+        }
+
+        border-radius: 14px;
+        border: solid 2px #131205;
+        background-color: #fae64c;
+        height: 80px;
+        color: #131205;
+        letter-spacing: -1.68px;
       }
+
+      .close {
+        height: 80px;
+        letter-spacing: -1.68px;
+        text-align: center;
+        color: #86b0ff;
+        border-radius: 14px;
+        border: solid 1px #4e699b;
+      }
+    }
+
+    .logoContainer {
+      display: flex;
+      justify-content: center;
+      margin-top: 62px;
+      margin-bottom: 55px;
     }
   }
 }
