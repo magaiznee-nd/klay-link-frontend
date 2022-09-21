@@ -3,23 +3,23 @@ import { RootState } from "../index";
 import { ModalState } from "../types";
 
 const initialState: ModalState = {
-    isModal: false,
+    isWalletModal: false,
 };
 
 export const modalSlice = createSlice({
     name: "modal",
     initialState,
     reducers: {
-        showModal: (state: ModalState) => {
-            state.isModal = true;
+        showWalletModal: (state: ModalState) => {
+            state.isWalletModal = true;
         },
-        toggleModal: (state: ModalState) => {
-            state.isModal = !state.isModal;
+        toggleWalletModal: (state: ModalState) => {
+            state.isWalletModal = !state.isWalletModal;
         },
     },
 });
 
-export const { showModal, toggleModal } = modalSlice.actions;
+export const { showWalletModal, toggleWalletModal } = modalSlice.actions;
 
 export const selectModal = (state: RootState) => state.modal;
 

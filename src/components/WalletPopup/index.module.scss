@@ -1,0 +1,64 @@
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding: 20px 0;
+
+  .walletPopup {
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    border-radius: 14px;
+    box-shadow: 3px 3px 6px 0 #000;
+    border: solid 1px #86b0ff;
+    background-color: #171b2a;
+    color: #fff;
+    padding: 20px;
+
+    .title {
+      margin: 0px;
+      font-size: 30px;
+      margin-bottom: 24px;
+    }
+
+    .divider {
+      border: solid 1px #86b0ff;
+    }
+
+    .content {
+      font-size: 14px;
+      line-height: 30px;
+    }
+
+    .buttonContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      button {
+        cursor: pointer;
+        color: #fff;
+        background-color: transparent;
+        padding: 8px;
+        border: solid 1px #86b0ff;
+        border-radius: 4px;
+      }
+
+      .kaikas {
+        background-color: rgb(111, 101, 88);
+      }
+
+      .klip {
+        background-color: rgb(254, 229, 0);
+        color           : #000000;
+      }
+    }
+  }
+}
