@@ -20,19 +20,13 @@ import MintInActive from "../../assets/images/mint-inactive.svg";
 import CommonUtil from "../../utils/CommonUtil";
 import { setAuth } from "../../state/auth";
 import { Link, Redirect, useHistory } from "react-router-dom";
-import WalletPopup from "../../components/WalletPopup";
 import { showWalletModal, } from "../../state/modal";
-import KlipQRPopup from "../../components/KlipQRPopup";
 import { setQrCode } from "../../state/klip";
 
 const Mint = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const address = useAppSelector((state) => state.auth.address);
-    const isWalletModal = useAppSelector((state) => state.modal.isWalletModal);
-
-    const qrCode = useAppSelector((state) => state.klip.qrCode);
-    const isKlipModal = useAppSelector((state) => state.klip.isKlipModal);
 
     const [balance, setBalance] = useState(0);
     const [mintPrice, setMintPrice] = useState(0);
@@ -50,11 +44,6 @@ const Mint = () => {
     }
 
     useAsyncEffect(async () => {
-        if (!Wallet.installed) {
-            const qrCode = window.localStorage.getItem("KlipQR");
-            dispatch(showWalletModal());
-            dispatch(setQrCode({qrCode: qrCode! }))
-        }
         if (await Wallet.connected() !== true) {
             await Wallet.connect();
         }
@@ -64,15 +53,13 @@ const Mint = () => {
             const balance = (await KlayLinkContract.balanceOf(address)).toNumber();
             setBalance(balance);
         }
-    }, [qrCode]);
+    }, []);
 
     useAsyncEffect(async () => setMintPrice(parseFloat(utils.formatEther(await KlayLinkMinterContract.mintPrice()))));
 
     return (
         <div>
             <Helmet title="PRE-LAUNCH | Klay Link" />
-            {isWalletModal && <WalletPopup />}
-            {isKlipModal && <KlipQRPopup dataURL={qrCode} />}
             <section className={styles.mintView}>
                 <header className={styles.header}>
                     <nav className={styles.nav}>
